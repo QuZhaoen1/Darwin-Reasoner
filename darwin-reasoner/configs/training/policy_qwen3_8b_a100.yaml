@@ -1,0 +1,35 @@
+# Conservative profile for a single node with 8 x NVIDIA A100 (40GB or 80GB).
+# It fine-tunes only LoRA adapters; the 8B base model remains frozen.
+model_name: Qwen/Qwen3-8B
+train_file: data/policy_train.jsonl
+valid_file: data/policy_valid.jsonl
+output_dir: checkpoints/policy_qwen3_8b_lora
+
+seed: 42
+max_seq_len: 1024
+per_device_batch_size: 1
+gradient_accumulation_steps: 8
+epochs: 2
+learning_rate: 0.0002
+weight_decay: 0.01
+warmup_ratio: 0.03
+max_grad_norm: 1.0
+log_every: 5
+save_every: 100
+num_workers: 2
+
+bf16: true
+gradient_checkpointing: true
+
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj

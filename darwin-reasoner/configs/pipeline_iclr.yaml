@@ -1,0 +1,8 @@
+# First replace experiment_config with pilot_8b.yaml after preparing the pilot dataset.
+work_dir: runs/iclr_pipeline
+experiment_config: configs/pilot_8b.yaml
+
+gate:
+  # DarwinReasoner minus strongest built-in baseline under the same configured budget.
+  abort_below: -0.02
+  diagnose_below: 0.01

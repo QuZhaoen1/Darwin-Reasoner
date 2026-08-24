@@ -1,0 +1,65 @@
+experiment_name: e0_smoke
+output_dir: runs
+dataset_path: data/smoke.jsonl
+limit: 4
+seed: 42
+
+backend:
+  kind: mock
+  model: mock-reasoner
+  tensor_parallel_size: 1
+  max_tokens_per_call: 128
+  temperature: 0.0
+  top_p: 1.0
+
+budget:
+  max_tokens: 512
+  max_calls: 6
+  max_nodes: 8
+
+search:
+  num_candidates: 8
+  execute_top_k: 4
+  mutation_rounds: 1
+  risk_beta: 0.5
+  uncertainty_threshold: 0.25
+  token_penalty: 0.00002
+  latency_penalty: 0.005
+  use_active_design: true
+
+counterfactual:
+  enabled: true
+  repeats_per_architecture: 2
+  max_states_per_problem: 1
+  matched_seed_family: true
+
+world_model:
+  kind: hash_mlp
+  hidden_dim: 64
+  text_features: 256
+  epochs: 3
+  batch_size: 16
+  learning_rate: 0.003
+  ensemble_size: 2
+  device: auto
+
+evolution:
+  enabled: true
+  min_support: 2
+  min_success_lift: -0.01
+  motif_min_len: 2
+  motif_max_len: 4
+  max_macros: 8
+
+tracking:
+  wandb: false
+
+extra:
+  self_consistency_samples: 8
+  baseline_names: [cot, verify, critical_repair]
+  online_rounds: 1
+  macro_validation_candidates: 8
+  macro_validation_problems: 50
+  macro_noninferiority_margin: 0.01
+  macro_min_token_saving: 0.05
+  stop_reward: 0.95

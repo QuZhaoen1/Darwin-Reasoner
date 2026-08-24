@@ -1,0 +1,6 @@
+work_dir: runs/pilot_pipeline
+experiment_config: configs/e0_smoke.yaml
+
+gate:
+  abort_below: -0.02
+  diagnose_below: 0.01

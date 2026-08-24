@@ -1,0 +1,21 @@
+# Example OOD protocol. Train the world model/grammar on Math+Logic separately, then evaluate here.
+base_config: configs/a100_8gpu_32b.yaml
+work_dir: runs/ood_code
+world_model: runs/train_math_logic/world_model.pt
+macros: runs/train_math_logic/macros.json
+run_baselines: true
+run_darwin: true
+
+datasets:
+  - name: livecodebench_heldout
+    path: data/livecodebench_heldout.jsonl
+    domain: code
+
+models:
+  - name: Qwen/Qwen3-8B
+    tensor_parallel_size: 1
+  - name: Qwen/Qwen3-32B
+    tensor_parallel_size: 8
+
+budgets: [4096, 8192, 16384]
+seeds: [11, 23, 47]

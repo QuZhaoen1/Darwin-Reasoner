@@ -1,0 +1,79 @@
+# Conservative single-process 8-GPU configuration. It uses tensor parallelism across all eight A100s.
+# For throughput-oriented experiments, shard seeds/datasets into two or four independent processes
+# with disjoint CUDA_VISIBLE_DEVICES groups and smaller tensor_parallel_size values.
+experiment_name: main_32b_8xa100
+output_dir: runs
+dataset_path: data/math500.jsonl
+limit: null
+seed: 42
+
+backend:
+  kind: vllm
+  model: Qwen/Qwen3-32B
+  tensor_parallel_size: 8
+  gpu_memory_utilization: 0.90
+  dtype: bfloat16
+  max_model_len: 32768
+  temperature: 0.6
+  top_p: 0.95
+  max_tokens_per_call: 2048
+
+budget:
+  max_tokens: 16384
+  max_latency_s: null
+  max_calls: 32
+  max_nodes: 24
+
+search:
+  num_candidates: 48
+  execute_top_k: 8
+  mutation_rounds: 3
+  risk_beta: 0.6
+  uncertainty_threshold: 0.15
+  token_penalty: 0.000015
+  latency_penalty: 0.002
+  diversity_bonus: 0.05
+  use_active_design: true
+
+counterfactual:
+  enabled: true
+  repeats_per_architecture: 4
+  max_states_per_problem: 3
+  matched_seed_family: true
+  save_every: 10
+
+world_model:
+  kind: hash_mlp
+  hidden_dim: 512
+  text_features: 8192
+  epochs: 40
+  batch_size: 512
+  learning_rate: 0.0005
+  ensemble_size: 7
+  device: auto
+
+evolution:
+  enabled: true
+  min_support: 20
+  min_success_lift: 0.025
+  motif_min_len: 2
+  motif_max_len: 6
+  max_macros: 64
+  prune_after_uses: 100
+  negative_transfer_threshold: -0.015
+
+tracking:
+  wandb: false
+  project: darwin-reasoner
+  entity: null
+  tags: [main, 8xa100, qwen3-32b]
+
+extra:
+  self_consistency_samples: 8
+  baseline_names: [cot, verify, critical_repair, debate_verify, tool_verify]
+  online_rounds: 3
+  macro_validation_candidates: 8
+  macro_validation_problems: 50
+  macro_noninferiority_margin: 0.01
+  macro_min_token_saving: 0.05
+  stop_reward: 0.97

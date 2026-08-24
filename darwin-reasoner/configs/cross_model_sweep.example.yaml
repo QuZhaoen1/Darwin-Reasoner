@@ -1,0 +1,21 @@
+# Train the world model on 8B data, then reuse it without retraining on larger reasoners.
+base_config: configs/a100_8gpu_32b.yaml
+work_dir: runs/cross_model_transfer
+world_model: runs/train_8b/world_model.pt
+macros: runs/train_8b/macros.json
+run_baselines: true
+run_darwin: true
+
+datasets:
+  - name: math500
+    path: data/math500.jsonl
+    domain: math
+
+models:
+  - name: Qwen/Qwen3-14B
+    tensor_parallel_size: 2
+  - name: Qwen/Qwen3-32B
+    tensor_parallel_size: 8
+
+budgets: [4096, 8192, 16384]
+seeds: [11, 23, 47]

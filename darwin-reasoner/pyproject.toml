@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "darwin-reasoner"
+version = "0.1.0"
+description = "Counterfactual world models for self-expanding inference architecture search."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "DarwinReasoner contributors"}
+]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pyyaml>=6.0",
+  "networkx>=3.2",
+  "pydantic>=2.6",
+  "typer>=0.12",
+  "rich>=13.7",
+  "scikit-learn>=1.4",
+  "scipy>=1.12",
+  "torch>=2.2",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+gpu = [
+  "transformers>=4.53",
+  "accelerate>=1.1",
+  "datasets>=2.20",
+  "huggingface-hub>=0.24",
+  "vllm>=0.12",
+]
+tracking = ["wandb>=0.18"]
+train = [
+  "transformers>=4.53",
+  "peft>=0.19.1",
+  "accelerate>=1.1",
+  "huggingface-hub>=0.24",
+  "safetensors>=0.4",
+]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+all = [
+  "transformers>=4.53",
+  "accelerate>=1.1",
+  "datasets>=2.20",
+  "huggingface-hub>=0.24",
+  "vllm>=0.12",
+  "wandb>=0.18",
+  "peft>=0.19.1",
+  "safetensors>=0.4",
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+darwin = "darwin_reasoner.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

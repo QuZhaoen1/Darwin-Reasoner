@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite the accompanying paper once available."
+title: "DarwinReasoner: Counterfactual World Models for Self-Expanding Inference Architecture Search"
+type: software
+version: 0.1.0
+date-released: 2026-08-18
+license: MIT

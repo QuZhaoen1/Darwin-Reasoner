@@ -1,0 +1,36 @@
+# Copy to configs/full_sweep.yaml and edit paths after the pilot world model exists.
+base_config: configs/a100_8gpu_32b.yaml
+work_dir: runs/full_sweep
+world_model: runs/iclr_pipeline/e3_world_model/world_model.pt
+macros: runs/iclr_pipeline/e3_world_model/admitted_macros.json
+run_baselines: true
+run_darwin: true
+
+# All datasets must already be converted to DarwinReasoner JSONL format.
+datasets:
+  - name: math500
+    path: data/math500.jsonl
+    domain: math
+  - name: aime
+    path: data/aime.jsonl
+    domain: math
+  - name: olympiadbench
+    path: data/olympiadbench.jsonl
+    domain: math
+  - name: livecodebench
+    path: data/livecodebench.jsonl
+    domain: code
+  - name: logic
+    path: data/logic.jsonl
+    domain: logic
+
+models:
+  - name: Qwen/Qwen3-8B
+    tensor_parallel_size: 1
+  - name: Qwen/Qwen3-14B
+    tensor_parallel_size: 2
+  - name: Qwen/Qwen3-32B
+    tensor_parallel_size: 8
+
+budgets: [2048, 4096, 8192, 16384, 32768]
+seeds: [11, 23, 47]

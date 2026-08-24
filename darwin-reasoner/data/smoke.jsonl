@@ -1,0 +1,4 @@
+{"problem_id":"smoke-001","prompt":"Compute 2 + 2.","answer":"4","domain":"math"}
+{"problem_id":"smoke-002","prompt":"Compute 9 - 5.","answer":"4","domain":"math"}
+{"problem_id":"smoke-003","prompt":"Compute 2 * 2.","answer":"4","domain":"math"}
+{"problem_id":"smoke-004","prompt":"Compute 7 - 3.","answer":"4","domain":"math"}
