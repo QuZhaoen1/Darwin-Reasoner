@@ -1,0 +1,45 @@
+{
+  "n": 60.0,
+  "accuracy": 0.4666666666666667,
+  "avg_tokens": 3220.633333333333,
+  "avg_latency_s": 23.52103523965925,
+  "by_method": {
+    "cot": {
+      "n": 10.0,
+      "accuracy": 0.7,
+      "avg_tokens": 763.1,
+      "avg_latency_s": 7.4892518077977
+    },
+    "critical_repair": {
+      "n": 10.0,
+      "accuracy": 0.3,
+      "avg_tokens": 4976.4,
+      "avg_latency_s": 30.450358481984587
+    },
+    "debate_verify": {
+      "n": 10.0,
+      "accuracy": 0.4,
+      "avg_tokens": 4078.4,
+      "avg_latency_s": 24.07133372873068
+    },
+    "self_consistency_8": {
+      "n": 10.0,
+      "accuracy": 0.6,
+      "avg_tokens": 5167.4,
+      "avg_latency_s": 48.90348910782486
+    },
+    "tool_verify": {
+      "n": 10.0,
+      "accuracy": 0.6,
+      "avg_tokens": 2161.2,
+      "avg_latency_s": 15.069453278649599
+    },
+    "verify": {
+      "n": 10.0,
+      "accuracy": 0.2,
+      "avg_tokens": 2177.3,
+      "avg_latency_s": 15.142325032968074
+    }
+  },
+  "best_method_accuracy": 0.7
+}

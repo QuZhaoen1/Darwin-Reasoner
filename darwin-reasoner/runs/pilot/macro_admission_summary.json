@@ -1,0 +1,96 @@
+{
+  "tested": 8,
+  "admitted": 0,
+  "shards": [
+    {
+      "slot": "macro_00",
+      "macro": "tool__critique",
+      "operators": [
+        "tool",
+        "critique"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_01",
+      "macro": "backtrack__branch",
+      "operators": [
+        "backtrack",
+        "branch"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_02",
+      "macro": "tool__critique__backtrack",
+      "operators": [
+        "tool",
+        "critique",
+        "backtrack"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_03",
+      "macro": "critique__backtrack__branch",
+      "operators": [
+        "critique",
+        "backtrack",
+        "branch"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_04",
+      "macro": "backtrack__branch__verify",
+      "operators": [
+        "backtrack",
+        "branch",
+        "verify"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_05",
+      "macro": "tool__critique__backtrack__branch",
+      "operators": [
+        "tool",
+        "critique",
+        "backtrack",
+        "branch"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_06",
+      "macro": "critique__backtrack__branch__verify",
+      "operators": [
+        "critique",
+        "backtrack",
+        "branch",
+        "verify"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    },
+    {
+      "slot": "macro_07",
+      "macro": "tool__critique__backtrack__branch__verify",
+      "operators": [
+        "tool",
+        "critique",
+        "backtrack",
+        "branch",
+        "verify"
+      ],
+      "pairs_run": 50,
+      "pairs_expected": 50
+    }
+  ]
+}

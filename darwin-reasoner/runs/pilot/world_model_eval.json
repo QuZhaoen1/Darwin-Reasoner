@@ -1,0 +1,9 @@
+{
+  "n_states_train": 80.0,
+  "n_states_test": 20.0,
+  "brier": 0.2894970983476082,
+  "within_state_spearman": 0.21280710949716358,
+  "top1_best_architecture_accuracy": 0.85,
+  "mean_selection_regret": 0.05,
+  "ece_10bin": 0.28978742819890607
+}

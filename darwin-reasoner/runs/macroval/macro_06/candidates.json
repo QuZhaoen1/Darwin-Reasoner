@@ -1,0 +1,16 @@
+[
+  {
+    "name": "critique__backtrack__branch__verify",
+    "operators": [
+      "critique",
+      "backtrack",
+      "branch",
+      "verify"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: critique -> backtrack -> branch -> verify. Preserve only useful intermediate results and end with FINAL: <answer>."
+  }
+]

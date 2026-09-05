@@ -1,0 +1,10 @@
+darwin|test/intermediate_algebra/956.json|42|8192
+darwin|test/intermediate_algebra/1247.json|42|8192
+darwin|test/precalculus/675.json|42|8192
+darwin|test/intermediate_algebra/279.json|42|8192
+darwin|test/precalculus/1146.json|42|8192
+darwin|test/prealgebra/1747.json|42|8192
+darwin|test/algebra/2046.json|42|8192
+darwin|test/prealgebra/1233.json|42|8192
+darwin|test/precalculus/1313.json|42|8192
+darwin|test/intermediate_algebra/207.json|42|8192

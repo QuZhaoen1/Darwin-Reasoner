@@ -1,0 +1,10 @@
+darwin|test/number_theory/1032.json|42|8192
+darwin|test/intermediate_algebra/1197.json|42|8192
+darwin|test/number_theory/737.json|42|8192
+darwin|test/geometry/248.json|42|8192
+darwin|test/precalculus/1303.json|42|8192
+darwin|test/precalculus/990.json|42|8192
+darwin|test/intermediate_algebra/134.json|42|8192
+darwin|test/precalculus/1199.json|42|8192
+darwin|test/geometry/434.json|42|8192
+darwin|test/intermediate_algebra/1000.json|42|8192

@@ -1,0 +1,15 @@
+{
+  "n": 240.0,
+  "accuracy": 0.725,
+  "avg_tokens": 2836.0625,
+  "avg_latency_s": 17.971202506796303,
+  "by_method": {
+    "counterfactual": {
+      "n": 240.0,
+      "accuracy": 0.725,
+      "avg_tokens": 2836.0625,
+      "avg_latency_s": 17.971202506796303
+    }
+  },
+  "best_method_accuracy": 0.725
+}

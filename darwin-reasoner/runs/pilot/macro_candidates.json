@@ -1,0 +1,172 @@
+[
+  {
+    "name": "tool__critique",
+    "operators": [
+      "tool",
+      "critique"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> critique. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "backtrack__branch",
+    "operators": [
+      "backtrack",
+      "branch"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: backtrack -> branch. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "tool__critique__backtrack",
+    "operators": [
+      "tool",
+      "critique",
+      "backtrack"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> critique -> backtrack. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "critique__backtrack__branch",
+    "operators": [
+      "critique",
+      "backtrack",
+      "branch"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: critique -> backtrack -> branch. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "backtrack__branch__verify",
+    "operators": [
+      "backtrack",
+      "branch",
+      "verify"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: backtrack -> branch -> verify. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "tool__critique__backtrack__branch",
+    "operators": [
+      "tool",
+      "critique",
+      "backtrack",
+      "branch"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> critique -> backtrack -> branch. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "critique__backtrack__branch__verify",
+    "operators": [
+      "critique",
+      "backtrack",
+      "branch",
+      "verify"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: critique -> backtrack -> branch -> verify. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "tool__critique__backtrack__branch__verify",
+    "operators": [
+      "tool",
+      "critique",
+      "backtrack",
+      "branch",
+      "verify"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> critique -> backtrack -> branch -> verify. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "verify__debate",
+    "operators": [
+      "verify",
+      "debate"
+    ],
+    "support": 30,
+    "success_rate": 0.6333333333333333,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.039583333333333304,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: verify -> debate. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "debate__compress",
+    "operators": [
+      "debate",
+      "compress"
+    ],
+    "support": 30,
+    "success_rate": 0.6333333333333333,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.039583333333333304,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: debate -> compress. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "tool__verify__debate",
+    "operators": [
+      "tool",
+      "verify",
+      "debate"
+    ],
+    "support": 30,
+    "success_rate": 0.6333333333333333,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.039583333333333304,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> verify -> debate. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "verify__debate__compress",
+    "operators": [
+      "verify",
+      "debate",
+      "compress"
+    ],
+    "support": 30,
+    "success_rate": 0.6333333333333333,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.039583333333333304,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: verify -> debate -> compress. Preserve only useful intermediate results and end with FINAL: <answer>."
+  },
+  {
+    "name": "tool__verify__debate__compress",
+    "operators": [
+      "tool",
+      "verify",
+      "debate",
+      "compress"
+    ],
+    "support": 30,
+    "success_rate": 0.6333333333333333,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.039583333333333304,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> verify -> debate -> compress. Preserve only useful intermediate results and end with FINAL: <answer>."
+  }
+]

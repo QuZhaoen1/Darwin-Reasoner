@@ -1,0 +1,14 @@
+[
+  {
+    "name": "tool__critique",
+    "operators": [
+      "tool",
+      "critique"
+    ],
+    "support": 30,
+    "success_rate": 0.7666666666666667,
+    "baseline_rate": 0.59375,
+    "success_lift": 0.17291666666666672,
+    "compiled_prompt": "Execute the following reusable reasoning routine in order: tool -> critique. Preserve only useful intermediate results and end with FINAL: <answer>."
+  }
+]

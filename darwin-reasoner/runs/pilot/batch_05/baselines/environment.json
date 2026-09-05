@@ -1,0 +1,12 @@
+{
+  "python": "3.12.3 | packaged by conda-forge | (main, Apr 15 2024, 18:38:13) [GCC 12.3.0]",
+  "platform": "Linux-5.14.0-611.55.1.el9_7.x86_64-x86_64-with-glibc2.34",
+  "git_commit": "unknown",
+  "torch": "2.13.0+cu130",
+  "cuda_available": true,
+  "cuda_version": "13.0",
+  "gpu_count": 1,
+  "gpus": [
+    "NVIDIA A100 80GB PCIe"
+  ]
+}

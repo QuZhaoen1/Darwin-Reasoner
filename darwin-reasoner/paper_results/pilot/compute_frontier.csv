@@ -1,0 +1,3 @@
+method,n,accuracy,accuracy_ci_low,accuracy_ci_high,avg_tokens,avg_latency_s
+cot,100,0.77,0.69,0.85,721.74,7.258849306004122
+DarwinReasoner,100,0.79,0.71,0.87,1648.89,11.119016848225147

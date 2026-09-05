@@ -1,0 +1,15 @@
+{
+  "n": 10.0,
+  "accuracy": 0.9,
+  "avg_tokens": 1224.9,
+  "avg_latency_s": 9.658692917134612,
+  "by_method": {
+    "DarwinReasoner": {
+      "n": 10.0,
+      "accuracy": 0.9,
+      "avg_tokens": 1224.9,
+      "avg_latency_s": 9.658692917134612
+    }
+  },
+  "best_method_accuracy": 0.9
+}
