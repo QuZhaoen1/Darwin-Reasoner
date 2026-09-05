@@ -1,0 +1,51 @@
+# --- Python build and cache output -------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# --- Environments -------------------------------------------------------------
+# The cluster venv is 7.5 GB. A single accidental `git add` would need a history
+# rewrite to undo, so this rule is not negotiable.
+.venv/
+venv/
+
+# --- Model weights and checkpoints --------------------------------------------
+# Regenerable build output, and large: runs/e2e/world_model.pt alone is 21.8 MB.
+*.pt
+*.bin
+*.safetensors
+
+# --- Slurm and machine-specific output ----------------------------------------
+logs/
+*.out
+.DS_Store
+
+# --- Run output ---------------------------------------------------------------
+# `runs/**` rather than `runs/`: git will not look inside an excluded DIRECTORY,
+# so the negations below could never match under a plain `runs/` rule. The
+# `!runs/**/` line re-includes directories so those negations can reach into
+# them; git does not track empty directories, so it costs nothing.
+runs/**
+!runs/**/
+
+# Published pilot results. Everything else under runs/ -- the smoke, e2e and
+# gpu_probe trees, and the merged jsonl that merge_batches.py regenerates from
+# the per-batch files -- stays out.
+!runs/pilot/**/metrics.json
+!runs/pilot/**/config.resolved.json
+!runs/pilot/**/environment.json
+!runs/pilot/**/completed_keys.txt
+!runs/pilot/**/raw_results.jsonl
+!runs/pilot/world_model_eval.json
+!runs/pilot/macro_candidates.json
+!runs/pilot/admitted_macros.json
+!runs/pilot/macro_admission_summary.json
+!runs/pilot/*_MERGE_INFO.json
+!runs/pilot/paper_results/**
+!runs/macroval/**/admitted.json
+!runs/macroval/**/candidates.json
+!runs/macroval/**/raw_results.jsonl

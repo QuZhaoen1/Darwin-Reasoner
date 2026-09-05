@@ -1,0 +1,89 @@
+{
+  "source": "data/math500_pilot.jsonl",
+  "total": 100,
+  "batch_size": 10,
+  "n_batches": 10,
+  "max_tokens_per_call": 2048,
+  "batches": [
+    {
+      "batch": 0,
+      "config": "configs/batches/batch_00.yaml",
+      "dataset": "data/batches/batch_00.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/precalculus/807.json",
+      "last_problem_id": "test/prealgebra/1139.json"
+    },
+    {
+      "batch": 1,
+      "config": "configs/batches/batch_01.yaml",
+      "dataset": "data/batches/batch_01.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/number_theory/1032.json",
+      "last_problem_id": "test/intermediate_algebra/1000.json"
+    },
+    {
+      "batch": 2,
+      "config": "configs/batches/batch_02.yaml",
+      "dataset": "data/batches/batch_02.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/algebra/1098.json",
+      "last_problem_id": "test/counting_and_probability/666.json"
+    },
+    {
+      "batch": 3,
+      "config": "configs/batches/batch_03.yaml",
+      "dataset": "data/batches/batch_03.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/number_theory/864.json",
+      "last_problem_id": "test/number_theory/45.json"
+    },
+    {
+      "batch": 4,
+      "config": "configs/batches/batch_04.yaml",
+      "dataset": "data/batches/batch_04.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/prealgebra/930.json",
+      "last_problem_id": "test/prealgebra/1388.json"
+    },
+    {
+      "batch": 5,
+      "config": "configs/batches/batch_05.yaml",
+      "dataset": "data/batches/batch_05.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/number_theory/1055.json",
+      "last_problem_id": "test/prealgebra/1247.json"
+    },
+    {
+      "batch": 6,
+      "config": "configs/batches/batch_06.yaml",
+      "dataset": "data/batches/batch_06.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/intermediate_algebra/956.json",
+      "last_problem_id": "test/intermediate_algebra/207.json"
+    },
+    {
+      "batch": 7,
+      "config": "configs/batches/batch_07.yaml",
+      "dataset": "data/batches/batch_07.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/number_theory/46.json",
+      "last_problem_id": "test/prealgebra/192.json"
+    },
+    {
+      "batch": 8,
+      "config": "configs/batches/batch_08.yaml",
+      "dataset": "data/batches/batch_08.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/intermediate_algebra/1849.json",
+      "last_problem_id": "test/number_theory/357.json"
+    },
+    {
+      "batch": 9,
+      "config": "configs/batches/batch_09.yaml",
+      "dataset": "data/batches/batch_09.jsonl",
+      "n_problems": 10,
+      "first_problem_id": "test/prealgebra/1761.json",
+      "last_problem_id": "test/precalculus/1300.json"
+    }
+  ]
+}

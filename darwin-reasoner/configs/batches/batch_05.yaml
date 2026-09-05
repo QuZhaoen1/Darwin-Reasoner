@@ -1,0 +1,77 @@
+experiment_name: pilot_batch_05
+output_dir: runs
+dataset_path: data/batches/batch_05.jsonl
+limit: null
+seed: 42
+backend:
+  kind: vllm
+  model: Qwen/Qwen3-8B
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.9
+  dtype: bfloat16
+  max_model_len: 16384
+  temperature: 0.6
+  top_p: 0.95
+  max_tokens_per_call: 2048
+  use_chat_template: true
+  enable_thinking: false
+budget:
+  max_tokens: 8192
+  max_latency_s: null
+  max_calls: 16
+  max_nodes: 16
+search:
+  num_candidates: 24
+  execute_top_k: 8
+  mutation_rounds: 2
+  risk_beta: 0.5
+  uncertainty_threshold: 0.2
+  token_penalty: 2.0e-05
+  latency_penalty: 0.002
+  diversity_bonus: 0.05
+  use_active_design: true
+counterfactual:
+  enabled: true
+  repeats_per_architecture: 3
+  max_states_per_problem: 2
+  matched_seed_family: true
+  save_every: 10
+world_model:
+  kind: hash_mlp
+  hidden_dim: 256
+  text_features: 4096
+  epochs: 30
+  batch_size: 256
+  learning_rate: 0.001
+  ensemble_size: 5
+  device: auto
+evolution:
+  enabled: true
+  min_support: 12
+  min_success_lift: 0.03
+  motif_min_len: 2
+  motif_max_len: 5
+  max_macros: 32
+  prune_after_uses: 50
+  negative_transfer_threshold: -0.02
+tracking:
+  wandb: false
+  project: darwin-reasoner
+  entity: null
+  tags:
+  - pilot
+  - qwen3-8b
+extra:
+  self_consistency_samples: 8
+  baseline_names:
+  - cot
+  - verify
+  - critical_repair
+  - debate_verify
+  - tool_verify
+  online_rounds: 2
+  macro_validation_candidates: 8
+  macro_validation_problems: 50
+  macro_noninferiority_margin: 0.01
+  macro_min_token_saving: 0.05
+  stop_reward: 0.95

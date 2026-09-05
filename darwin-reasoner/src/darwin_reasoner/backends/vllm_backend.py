@@ -22,6 +22,8 @@ class VLLMBackend(InferenceBackend):
         gpu_memory_utilization: float = 0.90,
         dtype: str = "bfloat16",
         max_model_len: int = 16384,
+        use_chat_template: bool = False,
+        enable_thinking: bool = False,
     ) -> None:
         try:
             from vllm import LLM
@@ -31,6 +33,13 @@ class VLLMBackend(InferenceBackend):
             ) from exc
 
         self.model_name = model
+        self.use_chat_template = use_chat_template
+        self.enable_thinking = enable_thinking
+        self._tokenizer = None
+        if use_chat_template:
+            from transformers import AutoTokenizer
+
+            self._tokenizer = AutoTokenizer.from_pretrained(model)
         self._llm = LLM(
             model=model,
             tensor_parallel_size=tensor_parallel_size,
@@ -39,6 +48,24 @@ class VLLMBackend(InferenceBackend):
             max_model_len=max_model_len,
             trust_remote_code=False,
         )
+
+    def _render(self, prompts: Sequence[str]) -> list[str]:
+        """Wrap operator prompts in the model's chat format when configured.
+
+        Operator prompts are written as bare instructions, which an instruct-tuned
+        model never terminates: it answers and then repeats until max_tokens.
+        """
+        if not self.use_chat_template or self._tokenizer is None:
+            return list(prompts)
+        return [
+            self._tokenizer.apply_chat_template(
+                [{"role": "user", "content": p}],
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=self.enable_thinking,
+            )
+            for p in prompts
+        ]
 
     def generate(
         self,
@@ -57,7 +84,7 @@ class VLLMBackend(InferenceBackend):
             top_p=top_p,
             seed=seed,
         )
-        outputs = self._llm.generate(list(prompts), params)
+        outputs = self._llm.generate(self._render(prompts), params)
         results: list[GenerationResult] = []
         for output in outputs:
             candidate = output.outputs[0]

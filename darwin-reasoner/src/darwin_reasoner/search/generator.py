@@ -57,16 +57,15 @@ class ArchitectureGenerator:
         for template in self.templates:
             candidates[template.architecture_id] = template
 
-        while len(candidates) < num_candidates:
-            base = deepcopy(self.rng.choice(list(candidates.values())))
-            mutated = base
-            for _ in range(max(1, mutation_rounds)):
-                mutated = self._mutate(mutated, max_nodes=max_nodes)
-            candidates[mutated.architecture_id] = mutated
-            if len(candidates) >= num_candidates:
-                break
-
-        # Add a few explicit macro candidates once the grammar has evolved.
+        # Mined macros are seeded BEFORE the mutation fill, not after. The fill
+        # loop below runs until len(candidates) == num_candidates, so anything
+        # appended afterwards sat beyond the `[:num_candidates]` slice at the end
+        # of this method and was discarded every time: with 7 templates and
+        # num_candidates=24, a registered macro produced 0 MACRO nodes at
+        # num_candidates 5, 7, 8, 24 and 32. That silently reduced the
+        # grammar-evolution arm to a no-op -- `cli run --macros` did nothing.
+        # Macros take precedence over random mutants because a mined, admitted
+        # macro is a stronger candidate than an arbitrary mutation.
         for macro_name, prompt in self.macro_prompts.items():
             macro = ReasoningArchitecture(
                 name=f"macro::{macro_name}",
@@ -83,6 +82,13 @@ class ArchitectureGenerator:
             candidates[macro.architecture_id] = macro
             if len(candidates) >= num_candidates:
                 break
+
+        while len(candidates) < num_candidates:
+            base = deepcopy(self.rng.choice(list(candidates.values())))
+            mutated = base
+            for _ in range(max(1, mutation_rounds)):
+                mutated = self._mutate(mutated, max_nodes=max_nodes)
+            candidates[mutated.architecture_id] = mutated
 
         return list(candidates.values())[:num_candidates]
 

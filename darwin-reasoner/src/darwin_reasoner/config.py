@@ -20,6 +20,14 @@ class BackendConfig(BaseModel):
     top_p: float = 0.95
     max_tokens_per_call: int = 1024
     seed: int = 42
+    # Instruct-tuned models (Qwen3-8B among them) emit no EOS when fed a bare
+    # completion prompt: they answer, then loop until max_tokens. Rendering the
+    # prompt through the tokenizer's chat template restores clean termination.
+    # Measured on 8 MATH-500 problems: mean output fell from 1024 (capped, 8/8
+    # truncated) to ~500 tokens with 0/8 truncated, and the answers became
+    # correct. Leave false to reproduce the original raw-prompt behaviour.
+    use_chat_template: bool = False
+    enable_thinking: bool = False
 
 
 class SearchConfig(BaseModel):
